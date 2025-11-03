@@ -3,120 +3,123 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>My cute and sexy girls</title>
+<title>My Lovely Cuties</title>
 
-<!-- Optional: change or remove Google Font if you prefer local fonts -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --deep:#335765;   /* #335765 */
-    --sea:#74A8A4;    /* #74A8A4 */
-    --mist:#B6D9E0;   /* #B6D9E0 */
-    --sand:#DBE2DC;   /* #DBE2DC */
-    --clay:#7F543D;   /* #7F543D */
-    --bg: #fbfbfa;
-    --card-radius:18px;
-    --glass: rgba(255,255,255,0.65);
-  }
+  .poem {
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  color: #e58eb2;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
-  /* Page layout */
+  :root{
+    --deep:#335765;
+    --sea:#74A8A4;
+    --mist:#E6F5F4;
+    --sand:#FBF6F8;
+    --accent:#F6D6E0;
+    --card-radius:14px;
+    --glass: rgba(255,255,255,0.75);
+    --bg: linear-gradient(180deg,#fff8fb,#f6f8f8 60%);
+  }
   *{box-sizing:border-box}
   body{
     margin:0;
-    min-height:100vh;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: linear-gradient(180deg,var(--bg),#f6f8f8 60%);
-    color:#17333a;
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background:var(--bg);
+    color:#12343a;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
+    min-height:100vh;
   }
 
   header{
-    padding:34px 20px 10px;
+    padding:28px 20px 10px;
     text-align:center;
   }
   .brand{
-    font-family: "Playfair Display", serif;
+    font-family:"Playfair Display",serif;
     font-size:36px;
-    letter-spacing:6px;
+    letter-spacing:4px;
     color:var(--deep);
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
   .subtitle{
     color:var(--deep);
-    opacity:0.8;
-    margin-top:0;
-    margin-bottom:18px;
+    opacity:0.85;
     font-size:14px;
+    margin-bottom:12px;
   }
-
   .controls{
     display:flex;
     justify-content:center;
     gap:12px;
-    margin-bottom:18px;
+    margin:6px 0 22px;
   }
-
   .btn{
-    border: none;
+    border:none;
     padding:8px 14px;
     border-radius:999px;
     cursor:pointer;
     font-weight:600;
     background:var(--sea);
     color:white;
-    box-shadow: 0 6px 18px rgba(51,87,101,0.12);
-    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 6px 18px rgba(51,87,101,0.12);
+    transition:transform .18s, box-shadow .18s;
   }
-  .btn:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(51,87,101,0.16) }
+  .btn:hover{ transform:translateY(-3px); box-shadow:0 10px 26px rgba(51,87,101,0.16); }
 
   main{
     max-width:1100px;
-    margin: 24px auto 60px;
-    padding: 0 20px;
+    margin: 12px auto 60px;
+    padding: 0 18px;
   }
 
   /* gallery grid */
   .gallery{
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:18px;
   }
 
   .card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9));
-    border-radius:var(--card-radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+    border-radius:12px;
     overflow:hidden;
-    box-shadow: 0 6px 22px rgba(34,60,70,0.06);
+    box-shadow:0 8px 24px rgba(20,40,45,0.06);
     transition: transform .28s ease, box-shadow .28s ease;
     display:flex;
     flex-direction:column;
-    height: 340px;
+    height:340px;
   }
-
-  .card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(34,60,70,0.12); }
+  .card:hover{ transform: translateY(-8px); box-shadow:0 20px 42px rgba(20,40,45,0.12); }
 
   .thumb{
     flex:1 1 auto;
-    background: #ddd;
+    background: #eee;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
+    padding:12px;
   }
 
-  /* Show full image with contain so full photo is visible */
+  /* keep full image visible, no cropping */
   .thumb img{
     width:100%;
     height:100%;
-    object-fit:contain; /* important: full pic visible, no cropping */
+    object-fit:contain; /* ensures full image visible */
     transition: transform .45s ease;
     user-select:none;
     -webkit-user-drag:none;
   }
-
-  .card:hover .thumb img{ transform: scale(1.03); }
+  .card:hover .thumb img{ transform: scale(1.02); }
 
   .meta{
     padding:12px 14px;
@@ -126,36 +129,35 @@
     gap:10px;
   }
 
-  .person{
-    text-align:left;
-  }
   .person h4{
     margin:0;
-    font-weight:600;
+    font-weight:700;
     color:var(--deep);
     font-size:16px;
+    font-family:"Playfair Display",serif;
   }
   .person p{
-    margin:4px 0 0;
-    font-size:12px;
-    color:#4a6b6b;
+    margin:6px 0 0;
+    font-size:13px;
+    color:#496565;
   }
 
-  .thumb-btm{
-    display:flex;
-    gap:8px;
-    align-items:center;
-  }
   .icon{
     width:36px;height:36px;border-radius:999px;
     display:grid;place-items:center;
-    background:var(--sand);
+    background:var(--accent);
     color:var(--deep);
     font-weight:700;
-    box-shadow: 0 2px 8px rgba(127,84,61,0.08);
   }
 
-  /* Lightbox / modal */
+  footer{
+    text-align:center;
+    padding:18px;
+    color:#5e6e6e;
+    font-size:13px;
+  }
+
+  /* Lightbox / viewer */
   .lightbox{
     position:fixed;
     inset:0;
@@ -163,7 +165,7 @@
     align-items:center;
     justify-content:center;
     z-index:1200;
-    background: linear-gradient(180deg, rgba(10,14,15,0.45), rgba(10,14,15,0.6));
+    background: linear-gradient(180deg, rgba(10,14,15,0.45), rgba(10,14,15,0.7));
     padding:28px;
   }
   .lightbox.open{ display:flex; }
@@ -180,8 +182,7 @@
     overflow:hidden;
   }
 
-  /* image container scales to viewport but preserves full image */
-  .viewer .image-wrap{
+  .image-wrap{
     background:var(--bg);
     display:flex;
     align-items:center;
@@ -192,14 +193,14 @@
     max-width:100%;
     max-height:86vh;
     object-fit:contain; /* ensures full picture shown */
-    border-radius:6px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    border-radius:8px;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
     transition: transform .36s ease;
   }
 
   /* info side panel */
   .info {
-    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.94));
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
     padding:22px;
     border-left: 1px solid rgba(20,30,30,0.03);
     display:flex;
@@ -210,7 +211,8 @@
     margin:0;
     font-family:"Playfair Display",serif;
     color:var(--deep);
-    letter-spacing:1px;
+    letter-spacing:0.8px;
+    font-size:20px;
   }
   .info p.desc{
     margin:6px 0 12px;
@@ -220,9 +222,16 @@
     flex:1;
   }
 
-  .info .meta-row{
+  .poem{
+    margin:6px 0 10px;
+    font-style:italic;
+    color:#3b5c5e;
+    line-height:1.5;
+  }
+
+  .meta-row{
     display:flex;
-    gap:10px;
+    gap:8px;
     align-items:center;
     flex-wrap:wrap;
   }
@@ -265,40 +274,28 @@
   }
   .thumb-row img.active{ border-color:var(--sea); transform:scale(1.03); }
 
-  /* small responsive tweaks */
+  /* responsive tweaks */
   @media (max-width:960px){
     .viewer{ grid-template-columns: 1fr 320px; }
-    .card{ height:300px; }
   }
   @media (max-width:760px){
     .viewer{ grid-template-columns: 1fr; }
     .info{ order:2; width:100%; border-left: none; border-top:1px solid rgba(20,30,30,0.03) }
     .lightbox{ padding:12px; }
   }
-
-  footer{
-    text-align:center;
-    padding:18px 16px;
-    color:#5e6e6e;
-    font-size:13px;
-    opacity:0.95;
-  }
-
-  /* subtle entry animation */
-  .card{ opacity:0; transform:translateY(18px) scale(.995); animation:cardIn .6s forwards; }
-  .card:nth-child(1){ animation-delay: .08s; }
-  .card:nth-child(2){ animation-delay: .16s; }
-  .card:nth-child(3){ animation-delay: .24s; }
-  .card:nth-child(4){ animation-delay: .32s; }
-  .card:nth-child(5){ animation-delay: .40s; }
-  @keyframes cardIn{ to{ opacity:1; transform:none } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">MY Babes</div>
-  <div class="subtitle">A hot cute girls gallery</div>
+  <div class="brand">MY Lovely Cuties</div>
+  <div class="subtitle"><p class="poem">
+  A smile so soft it lights the day,<br>
+  Turns the grayest skies to play.<br>
+  Gentle hearts and laughter’s art,<br>
+  Each smile a poem, from the heart.
+</p>
+</div>
 
   <div class="controls" aria-hidden>
     <button class="btn" id="openAll">Open First</button>
@@ -308,63 +305,117 @@
 
 <main>
   <section class="gallery" id="gallery">
-    <!-- Cards: edit names/quotes in data-* attributes below -->
-    <article class="card" data-index="0" data-name="Aisha" data-desc="Loves sea breezes and vintage books.">
-      <div class="thumb"><img src="1.jpg" alt="Aisha portrait" draggable="false"></div>
+    <!-- Cards use nicknames for safety while staying recognisable -->
+    <article class="card" data-index="0" data-name="Staffy J." data-desc="Sketches & pastel postcards" data-poem="Her laughter is a ribbon of sunrise — gentle, warm, and true.">
+      <div class="thumb"><img src="1.jpg" alt="Staffy J."></div>
       <div class="meta">
         <div class="person">
-          <h4>Staffie</h4>
-          <p>Fashion Model</p>
+          <h4>Staffy J.</h4>
+          <p>Creative soul</p>
         </div>
-        <div class="thumb-btm">
-          <div class="icon">01</div>
-        </div>
+        <div class="icon">01</div>
       </div>
     </article>
 
-    <article class="card" data-index="1" data-name="Mira" data-desc="A gentle laugh and a bold smile.">
-      <div class="thumb"><img src="2.jpg" alt="Mira portrait" draggable="false"></div>
+    <article class="card" data-index="1" data-name="Jia L." data-desc="Watercolor days & tea nights" data-poem="She paints quiet afternoons into keepsakes of honey and light.">
+      <div class="thumb"><img src="2.jpg" alt="Jia L."></div>
       <div class="meta">
         <div class="person">
-          <h4>Jia</h4>
-          <p>Photographer</p>
+          <h4>Jia L.</h4>
+          <p>Artist</p>
         </div>
-        <div class="thumb-btm"><div class="icon">02</div></div>
+        <div class="icon">02</div>
       </div>
     </article>
 
-    <article class="card" data-index="2" data-name="Nisha" data-desc="Collector of tiny memories and postcards.">
-      <div class="thumb"><img src="3.jpg" alt="Nisha portrait" draggable="false"></div>
+    <article class="card" data-index="2" data-name="Lissa" data-desc="Dances through lively streets, maps in hand" data-poem="Her steps write secret maps on city pavements — gentle, bold, and bright.">
+      <div class="thumb"><img src="3.jpg" alt="Lissa"></div>
       <div class="meta">
         <div class="person">
-          <h4>Eva</h4>
+          <h4>Lissa</h4>
           <p>Adventurer</p>
         </div>
-        <div class="thumb-btm"><div class="icon">03</div></div>
+        <div class="icon">03</div>
       </div>
     </article>
 
-    <article class="card" data-index="3" data-name="Sara" data-desc="Quiet strength with a warm heart.">
-      <div class="thumb"><img src="4.jpg" alt="Sara portrait" draggable="false"></div>
+    <article class="card" data-index="3" data-name="Eva E." data-desc="Night skies & soft-focus photos" data-poem="When she looks up, stars rearrange themselves to whisper her name.">
+      <div class="thumb"><img src="4.jpg" alt="Eva E."></div>
       <div class="meta">
         <div class="person">
-          <h4>Eve</h4>
-          <p>Poet</p>
+          <h4>Eva E.</h4>
+          <p>Stargazer</p>
         </div>
-        <div class="thumb-btm"><div class="icon">04</div></div>
+        <div class="icon">04</div>
       </div>
     </article>
 
-    <article class="card" data-index="4" data-name="Rhea" data-desc="Always bringing light to ordinary days.">
-      <div class="thumb"><img src="5.jpg" alt="Rhea portrait" draggable="false"></div>
+    <article class="card" data-index="4" data-name="Eve S." data-desc="Cupcakes, paper notes and cozy corners" data-poem="She folds small poems into pockets — sweet crumbs of moonlit mornings.">
+      <div class="thumb"><img src="5.jpg" alt="Eve S."></div>
       <div class="meta">
         <div class="person">
-          <h4>Mia</h4>
+          <h4>Eve S.</h4>
+          <p>Baker & dreamer</p>
+        </div>
+        <div class="icon">05</div>
+      </div>
+    </article>
+
+    <article class="card" data-index="5" data-name="Mia K." data-desc="Melodies, chords, and little lullabies" data-poem="Her voice stitches hush to the day; every note a brim of gold.">
+      <div class="thumb"><img src="6.jpg" alt="Mia K."></div>
+      <div class="meta">
+        <div class="person">
+          <h4>Mia K.</h4>
           <p>Musician</p>
         </div>
-        <div class="thumb-btm"><div class="icon">05</div></div>
+        <div class="icon">06</div>
       </div>
     </article>
+
+    <article class="card" data-index="6" data-name="Alisa" data-desc="Early runs and polaroid stacks" data-poem="She collects dawns in jars — bright, quiet, and full of small chances.">
+      <div class="thumb"><img src="7.jpg" alt="Alisa"></div>
+      <div class="meta">
+        <div class="person">
+          <h4>Alisa</h4>
+          <p>Photographer</p>
+        </div>
+        <div class="icon">07</div>
+      </div>
+    </article>
+
+    <article class="card" data-index="7" data-name="Anita" data-desc="Guitar strings & midnight skies" data-poem="A single chord from her tells of summer roads and softer mornings.">
+      <div class="thumb"><img src="8.jpg" alt="Anita"></div>
+      <div class="meta">
+        <div class="person">
+          <h4>Anita</h4>
+          <p>Musician</p>
+        </div>
+        <div class="icon">08</div>
+      </div>
+    </article>
+
+    <article class="card" data-index="8" data-name="Milana" data-desc="Flowing movements and quiet rehearsals" data-poem="She bends the quiet into motion; the world keeps time with her breath.">
+      <div class="thumb"><img src="9.jpg" alt="Milana"></div>
+      <div class="meta">
+        <div class="person">
+          <h4>Milana</h4>
+          <p>Dancer</p>
+        </div>
+        <div class="icon">09</div>
+      </div>
+    </article>
+
+    <article class="card" data-index="9" data-name="Annabell" data-desc="Paper hearts and ocean notes" data-poem="Her words are small boats on calm seas — they find the shore and stay.">
+      <div class="thumb"><img src="10.jpg" alt="Annabell"></div>
+      <div class="meta">
+        <div class="person">
+          <h4>Annabell</h4>
+          <p>Writer</p>
+        </div>
+        <div class="icon">10</div>
+      </div>
+    </article>
+
   </section>
 </main>
 
@@ -377,12 +428,13 @@
 
     <aside class="info" id="infoPanel">
       <h2 id="infoName">Name</h2>
-      <p class="desc" id="infoDesc">Short bio or quote goes here — edit the data-desc attribute in HTML to change.</p>
+      <p class="desc" id="infoDesc">Short bio</p>
+      <div class="poem" id="infoPoem">Poetic line goes here</div>
 
       <div class="meta-row">
-        <div class="chip">Coastal Palette</div>
         <div class="chip">Full Photo</div>
-        <div class="chip">Elegant Viewer</div>
+        <div class="chip">Dreamy Verses</div>
+        <div class="chip">Lovely Vibes</div>
       </div>
 
       <div class="controls-row" style="margin-top:auto;">
@@ -390,18 +442,18 @@
         <button class="icon-btn alt" id="playPause" title="Play / Pause (space)">▶</button>
         <button class="icon-btn" id="nextBtn" title="Next (→)">▶</button>
         <button class="icon-btn" id="fsBtn" title="Fullscreen">⛶</button>
-        <button class="icon-btn" id="closeBtn" title="Close (Esc)" style="background:var(--clay)">✕</button>
+        <button class="icon-btn" id="closeBtn" title="Close (Esc)" style="background:#7F543D">✕</button>
       </div>
 
       <div class="thumb-row" id="thumbRow" aria-hidden>
-        <!-- cloned thumbnails via JS -->
+        <!-- thumbnails built by JS -->
       </div>
     </aside>
   </div>
 </div>
 
 <footer>
-  Made with the Coastal Retreat palette • Images served locally as <code>1.jpg</code> … <code>5.jpg</code>
+  Made with gentle verses • Keep memories soft and kind ✨ BY YOUR LOVELY CAPTAIN
 </footer>
 
 <script>
@@ -411,18 +463,20 @@
   const fullImage = document.getElementById('fullImage');
   const infoName = document.getElementById('infoName');
   const infoDesc = document.getElementById('infoDesc');
+  const infoPoem = document.getElementById('infoPoem');
   const thumbRow = document.getElementById('thumbRow');
 
   let current = 0;
   let playing = false;
   let playTimer = null;
-  const AUTO_DELAY = 3000;
+  const AUTO_DELAY = 3500;
 
-  // Build a simple items array from cards
+  // Build items array from cards, reading data attributes
   const items = cards.map((c, idx) => ({
     src: c.querySelector('img').src,
     name: c.dataset.name || ('Person ' + (idx+1)),
     desc: c.dataset.desc || '',
+    poem: c.dataset.poem || '',
     index: idx
   }));
 
@@ -446,7 +500,6 @@
     updateViewer();
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden','false');
-    // focus for keyboard control
     document.body.style.overflow = 'hidden';
   }
 
@@ -461,10 +514,12 @@
   // Update viewer contents
   function updateViewer(){
     const it = items[current];
+    // assign src and texts
     fullImage.src = it.src;
     fullImage.alt = it.name;
     infoName.textContent = it.name;
     infoDesc.textContent = it.desc;
+    infoPoem.textContent = it.poem;
     // mark active thumb
     Array.from(thumbRow.children).forEach(img => {
       img.classList.toggle('active', +img.dataset.index === current);
@@ -497,7 +552,7 @@
     playing ? stopSlideshow() : startSlideshow();
   }
 
-  // Fullscreen toggle
+  // Fullscreen toggle (simple)
   function toggleFullScreen(){
     const doc = document;
     if(!doc.fullscreenElement){
@@ -513,9 +568,9 @@
     c.addEventListener('click', ()=> openAt(+c.dataset.index));
   });
 
-  // top header buttons
+  // header buttons
   document.getElementById('openAll').addEventListener('click', ()=> openAt(0));
-  document.getElementById('autoPlay').addEventListener('click', ()=>{
+  document.getElementById('autoPlay').addEventListener('click', ()=> {
     openAt(0);
     startSlideshow();
   });
@@ -541,24 +596,13 @@
     if(e.code === 'Space'){ e.preventDefault(); toggleSlideshow(); }
   });
 
-  // graceful image-loading indicator (subtle)
+  // image-loading indicator (subtle)
   fullImage.addEventListener('load', ()=>{
     fullImage.style.transform = 'translateY(0)';
   });
 
-  // small autoplay button at top
-  document.getElementById('autoPlay').addEventListener('click', ()=>{
-    // If already playing inside viewer, do nothing (handled)
-    // Otherwise open viewer and start
-    openAt(0);
-    startSlideshow();
-  });
-
-  // Prepare thumbnail click handlers already (buildThumbs)
-  // Expose a tiny API to console for debugging
+  // Expose small debug/API
   window.Gallery = { openAt, startSlideshow, stopSlideshow, next, prev, items };
-
-  // Accessibility hint: focus trap not implemented (keeps code simple)
 </script>
 </body>
 </html>
