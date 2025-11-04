@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>My Lovely Cuties</title>
+<title>My Lovely Cutes</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -11,147 +11,152 @@
   :root {
     --deep:#335765;
     --sea:#74A8A4;
-    --mist:#E6F5F4;
-    --accent:#F6D6E0;
-    --bg: linear-gradient(180deg,#fff8fb,#f6f8f8 60%);
+    --mist:#B6D9E0;
+    --sand:#DBE2DC;
+    --clay:#7F543D;
+    --bg:#fbfbfa;
+    --card-radius:18px;
   }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
+  *{box-sizing:border-box;}
   body{
-    font-family:"Inter",sans-serif;
-    background:var(--bg);
-    color:#12343a;
-    min-height:100vh;
+    margin:0;
+    font-family:"Inter",system-ui;
+    background:linear-gradient(180deg,var(--bg),#f6f8f8 60%);
+    color:#17333a;
   }
-
   header{
     text-align:center;
-    padding:30px 12px 16px;
+    padding:28px 16px 10px;
   }
   .brand{
     font-family:"Playfair Display",serif;
-    font-size:32px;
+    font-size:34px;
     color:var(--deep);
-    letter-spacing:2px;
+    letter-spacing:4px;
+    margin-bottom:4px;
   }
   .poem{
-    text-align:center;
     font-style:italic;
+    color:#496869;
     font-size:15px;
-    color:#e58eb2;
-    margin:8px auto 20px;
-    line-height:1.6;
-    max-width:400px;
+    max-width:520px;
+    margin:0 auto 16px;
+    line-height:1.5;
   }
   .controls{
     display:flex;
     justify-content:center;
     gap:10px;
-    flex-wrap:wrap;
+    margin:10px 0 18px;
   }
   .btn{
     border:none;
     background:var(--sea);
     color:white;
+    border-radius:999px;
     padding:8px 14px;
-    border-radius:50px;
-    font-weight:600;
     cursor:pointer;
-    transition:all .3s;
+    font-weight:600;
+    transition:transform .18s ease, box-shadow .18s ease;
   }
-  .btn:hover{transform:translateY(-2px);background:#60918f;}
-
+  .btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(51,87,101,0.18);
+  }
   main{
     max-width:1100px;
-    margin:0 auto;
-    padding:10px 14px 60px;
+    margin:0 auto 60px;
+    padding:0 16px;
   }
   .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
     gap:16px;
   }
-
   .card{
     background:white;
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    border-radius:var(--card-radius);
+    box-shadow:0 6px 22px rgba(34,60,70,0.06);
     overflow:hidden;
     display:flex;
     flex-direction:column;
-    height:300px;
-    transition:transform .25s;
+    transition:transform .28s ease, box-shadow .28s ease;
+    cursor:pointer;
   }
-  .card:hover{transform:translateY(-5px);}
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 32px rgba(34,60,70,0.12);
+  }
   .thumb{
     flex:1;
+    background:#eee;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#fafafa;
     overflow:hidden;
   }
   .thumb img{
     width:100%;
     height:100%;
-    object-fit:contain; /* full image visible */
+    object-fit:cover;
     transition:transform .4s ease;
   }
-  .card:hover .thumb img{transform:scale(1.03);}
+  .card:hover .thumb img{transform:scale(1.05);}
   .meta{
-    padding:10px 14px;
+    padding:10px 12px;
     display:flex;
     justify-content:space-between;
     align-items:center;
   }
   .person h4{
-    font-family:"Playfair Display",serif;
-    font-size:15px;
+    margin:0;
+    font-weight:600;
     color:var(--deep);
   }
   .person p{
+    margin:2px 0 0;
     font-size:12px;
-    color:#4c6e6e;
+    color:#4a6b6b;
   }
   .icon{
-    background:var(--accent);
+    background:var(--sand);
+    border-radius:50%;
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
     color:var(--deep);
     font-weight:700;
-    border-radius:50%;
-    width:30px;
-    height:30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
   }
 
   footer{
     text-align:center;
-    padding:20px;
-    color:#5e6e6e;
+    padding:18px;
     font-size:13px;
+    color:#5e6e6e;
   }
 
   /* Lightbox */
   .lightbox{
     position:fixed;
     inset:0;
-    background:rgba(10,14,15,0.7);
     display:none;
     align-items:center;
     justify-content:center;
+    background:rgba(10,14,15,0.6);
     z-index:1000;
-    padding:14px;
+    padding:16px;
   }
   .lightbox.open{display:flex;}
   .viewer{
+    background:white;
+    border-radius:14px;
+    box-shadow:0 30px 60px rgba(7,18,20,0.55);
+    max-width:1000px;
     width:100%;
-    max-width:950px;
     max-height:90vh;
     display:flex;
     flex-direction:column;
-    background:white;
-    border-radius:14px;
     overflow:hidden;
   }
   .image-wrap{
@@ -159,49 +164,63 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#fdfdfd;
+    background:#fafafa;
   }
   .image-wrap img{
-    width:100%;
-    height:auto;
+    max-width:100%;
     max-height:80vh;
     object-fit:contain;
+    border-radius:10px;
   }
   .info{
-    padding:16px;
-    border-top:1px solid #eee;
+    padding:14px 18px;
+    text-align:center;
+    background:var(--mist);
   }
-  .info h2{font-family:"Playfair Display",serif;color:var(--deep);margin:0;}
-  .info p{font-size:13px;color:#496565;margin:6px 0;}
-  .info .poem{color:#335765;margin:4px 0 10px;}
+  .info h2{
+    margin:0;
+    font-family:"Playfair Display",serif;
+    color:var(--deep);
+  }
+  .info p{
+    margin:6px 0;
+    color:#355050;
+    font-size:14px;
+  }
   .controls-row{
     display:flex;
     justify-content:center;
     gap:8px;
-    margin-top:8px;
+    margin-top:10px;
   }
   .icon-btn{
+    border:none;
     background:var(--sea);
     color:white;
-    border:none;
-    border-radius:8px;
     padding:8px 10px;
+    border-radius:10px;
     font-weight:700;
     cursor:pointer;
   }
-  .icon-btn.close{background:#7F543D;}
-
-  @media(max-width:600px){
+  .icon-btn.alt{background:var(--clay);}
+  @media (max-width:600px){
     .brand{font-size:26px;}
-    .gallery{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
-    .card{height:260px;}
+    .poem{font-size:13px;}
+    .gallery{gap:12px;}
+    .card{height:auto;}
   }
 </style>
 </head>
 <body>
+
 <header>
-  <div class="brand">MY Lovely Cuties</div>
-  <p class="poem">A smile so soft it lights the day,<br>Turns the grayest skies to play.<br>Gentle hearts and laughter’s art,<br>Each smile a poem, from the heart.</p>
+  <div class="brand">My Lovely Cutes</div>
+  <div class="poem">
+    “A smile so bright, a heart so kind,<br>
+    Like morning rays in tangled wind.<br>
+    Each laugh, each glance, a spark divine —<br>
+    My world feels warmer when you shine.” 💖
+  </div>
   <div class="controls">
     <button class="btn" id="openAll">Open First</button>
     <button class="btn" id="autoPlay">Start Slideshow</button>
@@ -209,79 +228,97 @@
 </header>
 
 <main>
-  <section class="gallery" id="gallery">
-    <!-- 1–10 existing -->
-    <article class="card" data-index="0" data-name="Staffy J" data-desc="Sketches & pastel postcards" data-poem="Her laughter is a ribbon of sunrise — gentle, warm, and true."><div class="thumb"><img src="1.jpg"></div><div class="meta"><div class="person"><h4>Staffy J</h4><p>Creative soul</p></div><div class="icon">01</div></div></article>
-    <article class="card" data-index="1" data-name="Jia Lissa" data-desc="Watercolor days & tea nights" data-poem="She paints quiet afternoons into keepsakes of honey and light."><div class="thumb"><img src="2.jpg"></div><div class="meta"><div class="person"><h4>Jia Lissa</h4><p>Artist</p></div><div class="icon">02</div></div></article>
-    <article class="card" data-index="2" data-name="Eva Elfie" data-desc="Dances through lively streets" data-poem="Her steps write secret maps on city pavements — gentle, bold, and bright."><div class="thumb"><img src="3.jpg"></div><div class="meta"><div class="person"><h4>Eva Elfie</h4><p>Adventurer</p></div><div class="icon">03</div></div></article>
-    <article class="card" data-index="3" data-name="Eve Sweet" data-desc="Night skies & soft-focus photos" data-poem="When she looks up, stars rearrange themselves to whisper her name."><div class="thumb"><img src="4.jpg"></div><div class="meta"><div class="person"><h4>Eve Sweet</h4><p>Stargazer</p></div><div class="icon">04</div></div></article>
-    <article class="card" data-index="4" data-name="Mia Khalifa" data-desc="Cupcakes, paper notes & cozy corners" data-poem="She folds small poems into pockets — sweet crumbs of moonlit mornings."><div class="thumb"><img src="5.jpg"></div><div class="meta"><div class="person"><h4>Mia Khalifa</h4><p>Baker & dreamer</p></div><div class="icon">05</div></div></article>
-    <article class="card" data-index="5" data-name="Alisa" data-desc="Melodies, chords & little lullabies" data-poem="Her voice stitches hush to the day; every note a brim of gold."><div class="thumb"><img src="6.jpg"></div><div class="meta"><div class="person"><h4>Alisa</h4><p>Musician</p></div><div class="icon">06</div></div></article>
-    <article class="card" data-index="6" data-name="Anita" data-desc="Early runs & polaroid stacks" data-poem="She collects dawns in jars — bright, quiet, and full of small chances."><div class="thumb"><img src="7.jpg"></div><div class="meta"><div class="person"><h4>Anita</h4><p>Photographer</p></div><div class="icon">07</div></div></article>
-    <article class="card" data-index="7" data-name="Milana" data-desc="Guitar strings & midnight skies" data-poem="A single chord from her tells of summer roads and softer mornings."><div class="thumb"><img src="8.jpg"></div><div class="meta"><div class="person"><h4>Milana</h4><p>Musician</p></div><div class="icon">08</div></div></article>
-    <article class="card" data-index="8" data-name="Annabell" data-desc="Flowing movements & quiet rehearsals" data-poem="She bends the quiet into motion; the world keeps time with her breath."><div class="thumb"><img src="9.jpg"></div><div class="meta"><div class="person"><h4>Annabell</h4><p>Dancer</p></div><div class="icon">09</div></div></article>
-    <article class="card" data-index="9" data-name="Oxana" data-desc="Paper hearts & ocean notes" data-poem="Her words are small boats on calm seas — they find the shore and stay."><div class="thumb"><img src="10.jpg"></div><div class="meta"><div class="person"><h4>Oxana</h4><p>Writer</p></div><div class="icon">10</div></div></article>
-
-    <!-- 11–20 New -->
-    <article class="card" data-index="10" data-name="Gloria Sol" data-desc="Sunset sketches & floral perfume" data-poem="Her smile smells like roses and orange dusk — endlessly soft."><div class="thumb"><img src="11.jpg"></div><div class="meta"><div class="person"><h4>Gloria Sol</h4><p>Painter</p></div><div class="icon">11</div></div></article>
-    <article class="card" data-index="11" data-name="Mila Azul" data-desc="Vintage vibes & open skies" data-poem="She dances through blue horizons, carrying laughter in her hair."><div class="thumb"><img src="12.jpg"></div><div class="meta"><div class="person"><h4>Mila Azul</h4><p>Dreamer</p></div><div class="icon">12</div></div></article>
-    <article class="card" data-index="12" data-name="Cali" data-desc="Beach walks & coconut tales" data-poem="Every wave hums her name — sunshine stitched with sea breeze."><div class="thumb"><img src="13.jpg"></div><div class="meta"><div class="person"><h4>Cali</h4><p>Beach lover</p></div><div class="icon">13</div></div></article>
-    <article class="card" data-index="13" data-name="Dakota Pink" data-desc="Sketchbooks & neon dreams" data-poem="Her art glows even when the lights fade — pure pink wonder."><div class="thumb"><img src="14.jpg"></div><div class="meta"><div class="person"><h4>Dakota Pink</h4><p>Designer</p></div><div class="icon">14</div></div></article>
-    <article class="card" data-index="14" data-name="Calypso" data-desc="Ocean waves & secret melodies" data-poem="Her voice carries tides — calm, wild, and deep as summer nights."><div class="thumb"><img src="15.jpg"></div><div class="meta"><div class="person"><h4>Calypso</h4><p>Singer</p></div><div class="icon">15</div></div></article>
-    <article class="card" data-index="15" data-name="Avery" data-desc="Books, rain, and shy glances" data-poem="Raindrops fall softer when she smiles — the world hushes."><div class="thumb"><img src="16.jpg"></div><div class="meta"><div class="person"><h4>Avery</h4><p>Writer</p></div><div class="icon">16</div></div></article>
-    <article class="card" data-index="16" data-name="Kay J" data-desc="Urban lights & street photography" data-poem="She freezes fleeting sparks into forever frames."><div class="thumb"><img src="17.jpg"></div><div class="meta"><div class="person"><h4>Kay J</h4><p>Photographer</p></div><div class="icon">17</div></div></article>
-    <article class="card" data-index="17" data-name="Marta Gromova" data-desc="Museums & late-night playlists" data-poem="She hums in tune with city lights, quietly dazzling."><div class="thumb"><img src="18.jpg"></div><div class="meta"><div class="person"><h4>Marta Gromova</h4><p>Curator</p></div><div class="icon">18</div></div></article>
-    <article class="card" data-index="18" data-name="Cosima" data-desc="Chocolates, clouds & vintage cameras" data-poem="Her world smells of cocoa and curiosity — endless sweet frames."><div class="thumb"><img src="19.jpg"></div><div class="meta"><div class="person"><h4>Cosima</h4><p>Traveler</p></div><div class="icon">19</div></div></article>
-    <article class="card" data-index="19" data-name="Sunny Leone" data-desc="Golden rays & sparkling confidence" data-poem="She’s sunrise personified — bold, bright, and beautifully kind."><div class="thumb"><img src="20.jpg"></div><div class="meta"><div class="person"><h4>Sunny Leone</h4><p>Star</p></div><div class="icon">20</div></div></article>
-  </section>
+  <section class="gallery" id="gallery"></section>
 </main>
 
 <div class="lightbox" id="lightbox">
   <div class="viewer">
-    <div class="image-wrap"><img id="fullImage" src=""></div>
+    <div class="image-wrap"><img src="" id="fullImage" alt=""></div>
     <div class="info">
       <h2 id="infoName"></h2>
       <p id="infoDesc"></p>
-      <div class="poem" id="infoPoem"></div>
       <div class="controls-row">
         <button class="icon-btn" id="prevBtn">◀</button>
         <button class="icon-btn" id="playPause">▶</button>
         <button class="icon-btn" id="nextBtn">▶</button>
-        <button class="icon-btn close" id="closeBtn">✕</button>
+        <button class="icon-btn alt" id="closeBtn">✕</button>
       </div>
     </div>
   </div>
 </div>
 
-<footer>Made with gentle verses • BY YOUR LOVELY CAPTAIN 💫</footer>
+<footer>Made with 💖 by Captain — 20 Smiling Souls, Each a Star ✨</footer>
 
 <script>
-const cards = [...document.querySelectorAll('.card')];
-const lightbox = document.getElementById('lightbox');
-const fullImage = document.getElementById('fullImage');
-const infoName = document.getElementById('infoName');
-const infoDesc = document.getElementById('infoDesc');
-const infoPoem = document.getElementById('infoPoem');
-let current=0, playing=false, timer=null;
-const delay=3500;
-const items=cards.map((c,i)=>({src:c.querySelector('img').src,name:c.dataset.name,desc:c.dataset.desc,poem:c.dataset.poem}));
+const friends = [
+  ["Staffie","Loves sunsets and gentle breezes."],
+  ["Jia Lissa","A creative soul who paints with joy."],
+  ["Eva Elfie","Always smiling, bringing warmth to all."],
+  ["Eve Sweet","Sweet laughter that makes hearts bloom."],
+  ["Mia Khalifa","Bold, confident, and full of grace."],
+  ["Alisa","Writes verses and dreams by the sea."],
+  ["Anita","Soft-spoken, full of hidden charm."],
+  ["Milana","Adventurous heart and kind eyes."],
+  ["Annabell","Dances through life with spark."],
+  ["Oxana","Chasing stars, calm and bright."],
+  ["Gloria Sol","Sunshine in human form."],
+  ["Mila Azul","Ocean eyes and peaceful mind."],
+  ["Cali","Loves rhythm, nature, and light."],
+  ["Dakota Pink","Playful heart, warm laughter."],
+  ["Calypso","Dreamer with waves in her soul."],
+  ["Avery","Quiet grace with powerful dreams."],
+  ["Kay J","Smart, witty, and endlessly kind."],
+  ["Marta Gromova","Calm as dawn, sweet as rain."],
+  ["Cosima","Gentle and artistic at heart."],
+  ["Sunny Leone","Radiant spirit, forever smiling."]
+];
 
-function openAt(i){current=i;show();lightbox.classList.add('open');document.body.style.overflow='hidden';}
-function close(){lightbox.classList.remove('open');stop();document.body.style.overflow='';}
-function show(){const x=items[current];fullImage.src=x.src;infoName.textContent=x.name;infoDesc.textContent=x.desc;infoPoem.textContent=x.poem;}
-function next(){current=(current+1)%items.length;show();}
-function prev(){current=(current-1+items.length)%items.length;show();}
+const gallery = document.getElementById("gallery");
+friends.forEach((f,i)=>{
+  const card = document.createElement("article");
+  card.className="card";
+  card.dataset.index=i;
+  card.dataset.name=f[0];
+  card.dataset.desc=f[1];
+  card.innerHTML=`
+    <div class="thumb"><img src="${i+1}.jpg" alt="${f[0]}"></div>
+    <div class="meta">
+      <div class="person"><h4>${f[0]}</h4><p>Friend</p></div>
+      <div class="icon">${String(i+1).padStart(2,'0')}</div>
+    </div>`;
+  gallery.appendChild(card);
+});
+
+const cards=[...document.querySelectorAll('.card')];
+const lightbox=document.getElementById('lightbox');
+const fullImage=document.getElementById('fullImage');
+const infoName=document.getElementById('infoName');
+const infoDesc=document.getElementById('infoDesc');
+let current=0,playing=false,timer;
+const delay=3000;
+
+function openAt(i){current=i;update();lightbox.classList.add('open');}
+function close(){lightbox.classList.remove('open');stop();}
+function update(){
+  const c=friends[current];
+  fullImage.src=`${current+1}.jpg`;
+  infoName.textContent=c[0];
+  infoDesc.textContent=c[1];
+}
+function prev(){current=(current-1+friends.length)%friends.length;update();}
+function next(){current=(current+1)%friends.length;update();}
 function start(){if(playing)return;playing=true;document.getElementById('playPause').textContent='❚❚';timer=setInterval(next,delay);}
 function stop(){playing=false;document.getElementById('playPause').textContent='▶';clearInterval(timer);}
 function toggle(){playing?stop():start();}
-cards.forEach((c,i)=>c.onclick=()=>openAt(i));
+
+cards.forEach(c=>c.onclick=()=>openAt(+c.dataset.index));
 document.getElementById('openAll').onclick=()=>openAt(0);
 document.getElementById('autoPlay').onclick=()=>{openAt(0);start();};
 document.getElementById('prevBtn').onclick=prev;
 document.getElementById('nextBtn').onclick=next;
 document.getElementById('playPause').onclick=toggle;
 document.getElementById('closeBtn').onclick=close;
-lightbox.onclick=e=>{if(e.target===lightbox)close();};
+lightbox.onclick=e=>{if(e.target===lightbox)close();}
 document.onkeydown=e=>{
   if(!lightbox.classList.contains('open'))return;
   if(e.key==='ArrowLeft')prev();
